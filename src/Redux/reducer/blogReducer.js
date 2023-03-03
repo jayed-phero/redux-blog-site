@@ -1,4 +1,4 @@
-import { GET_BLOGS } from "../actionTypes/actionTypes";
+import { ADD_CONTENT, DELETE_CONTENT, GET_CONTENT } from "../actionTypes/actionTypes";
 
 const initialState = {
     blogs: []
@@ -6,10 +6,21 @@ const initialState = {
 
 const blogReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_BLOGS:
+        case GET_CONTENT:
             return {
                 ...state,
                 blogs: action.payload
+            }
+        case ADD_CONTENT:
+            return {
+                ...state,
+                blogs: action.payload
+            }
+
+        case DELETE_CONTENT:
+            return {
+                ...state,
+                blogs: state.blogs.filter(blog => blog._id !== action.payload)
             }
 
 

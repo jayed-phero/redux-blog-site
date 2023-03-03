@@ -1,4 +1,4 @@
-import { ADD_BLOG, ADD_TO_CART, GET_BLOGS, REMOVE_RFOM_CART } from "../actionTypes/actionTypes";
+import { ADD_BLOG, ADD_CONTENT, ADD_TO_CART, GET_BLOGS, GET_CONTENT, REMOVE_RFOM_CART } from "../actionTypes/actionTypes";
 
 const initialState = {
     text: "TEST",
@@ -16,13 +16,13 @@ const blogsReducer = (state = initialState, action) => {
 
 
     switch (action.type) {
-        case GET_BLOGS: 
+        case GET_CONTENT: 
         return {
             ...state,
             blogs: action.payload
         }
 
-        case ADD_BLOG: 
+        case ADD_CONTENT: 
         return {
             ...state,
             

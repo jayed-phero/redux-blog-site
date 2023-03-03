@@ -1,4 +1,4 @@
-const { ADD_TO_CART, REMOVE_RFOM_CART, GET_BLOGS, ADD_BLOG } = require("../actionTypes/actionTypes")
+const { ADD_TO_CART, REMOVE_RFOM_CART, GET_BLOGS, ADD_BLOG, GET_CONTENT, ADD_CONTENT, DELETE_CONTENT } = require("../actionTypes/actionTypes")
 
 export const addToCart = (data) => {
     return {
@@ -14,16 +14,24 @@ export const removeFromCart = (data) => {
     }
 }
 
-export const getBlogs = (data) => {
+export const getContent = (data) => {
     return {
-        type: GET_BLOGS,
+        type: GET_CONTENT,
         payload: data
     }
 }
 
-export const addBlog = (data) => {
+export const addContent = (data) => {
     return {
-        type: ADD_BLOG,
+        type: ADD_CONTENT,
         payload: data
+    }
+}
+
+
+export const deleteContent = (id) => {
+    return {
+        type: DELETE_CONTENT,
+        payload: id
     }
 }
