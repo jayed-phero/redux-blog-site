@@ -3,7 +3,7 @@ import { deleteContent } from "../actionCreators/blogsAction"
 
 const deleteBlogData = (id) => {
     return (dispatch) => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/id`)
+        axios.delete(`${process.env.REACT_APP_API_URL}/deleteblog/${id}`)
             .then(res => {
                 console.log(res.data)
                 if (res.data.acknowledged) {

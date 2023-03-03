@@ -12,7 +12,7 @@ const DashboardLayout = () => {
                     <Sidebar />
                     <div className='flex-1 md:ml-64'>
                         <div className=''>
-                            <div className='py-9 bg-gray-100 w-full'></div>
+                            <div className='py-9 bg-gray-100 w-full hidden lg:block'></div>
                             <Outlet />
                         </div>
                     </div>

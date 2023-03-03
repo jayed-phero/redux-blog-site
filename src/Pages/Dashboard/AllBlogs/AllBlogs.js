@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ConformationModal from '../../../components/ConformationModal';
+import UpdateModal from '../../../components/UpdateModal';
 import { deleteContent } from '../../../Redux/actionCreators/blogsAction';
+import fetchBlogs from '../../../Redux/thunk/fetchBlogs';
 
 const AllBlogs = () => {
     const dispatch = useDispatch()
     const blogs = useSelector((state) => state.blog.blogs)
+    useEffect(() => {
+        dispatch(fetchBlogs())
+    }, [])
     console.log(blogs)
+    const [blogData, setBlogData] = useState(null)
+    const [editblogData, setEditBlogData] = useState(null)
     return (
         <div>
             <section class="container my-5 md:my-7 px-4 mx-auto ml-5 xl:ml-0">
@@ -62,7 +70,7 @@ const AllBlogs = () => {
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                                         {
-                                            blogs?.map((blog) =>
+                                            blogs.length && blogs?.map((blog) =>
                                                 <tr key={blog._id}>
                                                     <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                                         <div class="inline-flex items-center gap-x-3">
@@ -95,17 +103,18 @@ const AllBlogs = () => {
                                                     </td>
                                                     <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                         <div class="flex items-center gap-x-6">
-                                                            <button onClick={() => dispatch(deleteContent(blog._id))} class="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none">
+                                                            {/* <label htmlFor="my-modal-6" className="btn">open modal</label> */}
+                                                            <label htmlFor="my-modal-6" onClick={() => setBlogData(blog)} class="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none cursor-pointer">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                                                                 </svg>
-                                                            </button>
+                                                            </label>
 
-                                                            <button class="text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none">
+                                                            <label onClick={() => setEditBlogData(blog)} htmlFor="my-modal-5" class="text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                                                                 </svg>
-                                                            </button>
+                                                            </label>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -150,6 +159,21 @@ const AllBlogs = () => {
                     </a>
                 </div>
             </section>
+            {
+                blogData &&
+                <ConformationModal
+                    blogData={blogData}
+                    setBlogData={setBlogData}
+                />
+            }
+            {
+
+                <UpdateModal
+                    editblogData={editblogData}
+                    setEditBlogData={setEditBlogData}
+                />
+            }
+
         </div>
     );
 };

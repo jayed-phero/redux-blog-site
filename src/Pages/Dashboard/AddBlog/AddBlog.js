@@ -15,12 +15,17 @@ const AddBlog = () => {
 
     const onSubmit = data => {
         console.log(data)
+        const dateMain = new Date()
+        const date = dateMain.getFullYear() + "-" + (dateMain.getMonth() + 1) + "-" + dateMain.getDate();
+        var time = dateMain.getHours() + ":" + dateMain.getMinutes() + ":" + dateMain.getSeconds();
+        var date_time = date + " " + time;
         const image = data.image[0]
         const category = data.category
         const title = data.title
         const firstDetails = data.firstDetails
         const secondDetails = data.secondDetails
         const thirdDetails = data.thirdDetails
+        console.log(dateMain)
 
         setLoading(true)
         GetImageUrl(image)
@@ -34,7 +39,9 @@ const AddBlog = () => {
                         title,
                         firstDetails,
                         secondDetails,
-                        thirdDetails
+                        thirdDetails,
+                        date,
+                        time
                     }
 
                     dispatch(postBlogData(blogData))
@@ -78,8 +85,8 @@ const AddBlog = () => {
                         <div>
                             <label class="text-gray-700 dark:text-gray-200" >Title</label>
                             <input class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-                            placeholder='Minimum 25 Letter is Needed'
-                                {...register("title", { required: true})}
+                                placeholder='Minimum 25 Letter is Needed'
+                                {...register("title", { required: true })}
                                 required
                             />
                         </div>
