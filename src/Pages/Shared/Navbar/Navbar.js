@@ -8,7 +8,7 @@ const Navbar = () => {
 
     return (
 
-        <div className='w-full shadow-lg'>
+        <div className='w-full pb-7 hidden md:block'>
             <div className="navbar max-w-7xl mx-auto  bg-base-100">
                 <div className="navbar-start">
                     {/* <div className="dropdown">
@@ -38,7 +38,7 @@ const Navbar = () => {
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                <img src="https://media.istockphoto.com/id/1305026622/photo/ramadan-kareem-lantern-and-dates-fruit-with-city-light-background.jpg?b=1&s=170667a&w=0&k=20&c=cjCwVIFLm4uIYN5pstd4pOJdWupyf38nIckbGcjMA3M=" />
                             </div>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
