@@ -8,7 +8,7 @@ const Home = () => {
     console.log(state)
     return (
         <div>
-            <Product/>
+            {/* <Product/> */}
             <Blogs />
         </div>
     );

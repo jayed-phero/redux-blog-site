@@ -1,20 +1,32 @@
-import { ADD_TO_CART, REMOVE_RFOM_CART } from "../actionTypes/actionTypes";
+import { ADD_BLOG, ADD_TO_CART, GET_BLOGS, REMOVE_RFOM_CART } from "../actionTypes/actionTypes";
 
 const initialState = {
     text: "TEST",
-    cart: []
+    cart: [],
+    blogs: []
 }
 
 const blogsReducer = (state = initialState, action) => {
 
-    console.log(action.payload)
+    // console.log(action.payload)
     const selectedBlog = state.cart.find((blog) => blog._id == action.payload._id)
 
-    console.log(selectedBlog)
-    console.log(selectedBlog)
+    // console.log(selectedBlog)
+    // console.log(selectedBlog)
 
 
     switch (action.type) {
+        case GET_BLOGS: 
+        return {
+            ...state,
+            blogs: action.payload
+        }
+
+        case ADD_BLOG: 
+        return {
+            ...state,
+            
+        }
         case ADD_TO_CART:
             if (selectedBlog) {
 

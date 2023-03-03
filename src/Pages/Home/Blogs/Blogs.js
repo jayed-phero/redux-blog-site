@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BlogRow from './BlogRow';
+import { useDispatch, useSelector } from 'react-redux'
+import getBlogsData from '../../../Redux/thunk/fetchBlogs';
+import fetchBlogs from '../../../Redux/thunk/fetchBlogs';
 
 const Blogs = () => {
+    const dispatch = useDispatch()
+    const blogs = useSelector((state) => state.blog.blogs)
+    useEffect(() => {
+        dispatch(fetchBlogs())
+    }, [])
+
+    console.log(blogs)
     return (
         <div>
             <section class="bg-white dark:bg-gray-900">
@@ -20,7 +30,7 @@ const Blogs = () => {
 
                     <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
                         {
-                            [1, 2, 3, 4, 5, 6].map((blog, i) =>
+                            blogs.map((blog, i) =>
                                 <BlogRow
                                     key={i}
                                     blog={blog}
