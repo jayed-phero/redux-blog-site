@@ -11,7 +11,8 @@ const DashboardLayout = () => {
                     {/* <DashboardSidebar /> */}
                     <Sidebar />
                     <div className='flex-1 md:ml-64'>
-                        <div className='p-5'>
+                        <div className=''>
+                            <div className='py-9 bg-gray-100 w-full'></div>
                             <Outlet />
                         </div>
                     </div>

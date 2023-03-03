@@ -43,7 +43,7 @@ const Footer = () => {
                     <hr class="my-6 border-gray-200 md:my-8 dark:border-gray-700" />
 
                     <div class="flex items-center justify-between">
-                        <a className="font-bold normal-case sm:text-4xl text-2xl text-whiteer logo">LetsIqro</a>
+                        <a className="font-bold normal-case sm:text-4xl text-2xl text-white logo">LetsIqro</a>
 
                         <div class="flex -mx-2">
                             <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Reddit">
