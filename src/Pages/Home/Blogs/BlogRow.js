@@ -1,9 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addToHistory } from '../../../Redux/actionCreators/blogsAction';
 
-const BlogRow = ({blog}) => {
+const BlogRow = ({ blog }) => {
+    const dispatch = useDispatch()
     return (
-        <div>
+        <Link onClick={() => dispatch(addToHistory(blog))} to={`/details/${blog?._id}`}>  <div>
             <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80" src={blog.image} alt="" />
 
             <div class="mt-8">
@@ -26,11 +29,11 @@ const BlogRow = ({blog}) => {
                         <p class="text-sm text-gray-500 dark:text-gray-400">February 1, 2022</p>
                     </div>
 
-                    <Link to='/blogdetails/1' class="inline-block text-blue-500 underline hover:text-blue-400">Read more</Link>
+                    <Link to={`/details/${blog?._id}`} class="inline-block text-blue-500 underline hover:text-blue-400">Read more</Link>
                 </div>
 
             </div>
-        </div>
+        </div></Link>
     );
 };
 

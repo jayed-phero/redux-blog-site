@@ -22,7 +22,8 @@ export const router = createBrowserRouter([
                 element: <ReadingHistory />
             },
             {
-                path: '/blogdetails/:id',
+                path: '/details/:id',
+                loader: ({params}) => fetch(`${process.env.REACT_APP_API_URL}/blogdetails/${params.id}`),
                 element: <BlogDetails />
             }
         ]
