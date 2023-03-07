@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BlogRow = ({blog}) => {
     return (
@@ -25,7 +26,7 @@ const BlogRow = ({blog}) => {
                         <p class="text-sm text-gray-500 dark:text-gray-400">February 1, 2022</p>
                     </div>
 
-                    <a href="#" class="inline-block text-blue-500 underline hover:text-blue-400">Read more</a>
+                    <Link to='/blogdetails/1' class="inline-block text-blue-500 underline hover:text-blue-400">Read more</Link>
                 </div>
 
             </div>
