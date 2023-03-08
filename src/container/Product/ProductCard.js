@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { addToCart, removeFromCart } from "../../../Redux/actionCreators/blogsAction";
-import { ADD_TO_CART } from "../../../Redux/actionTypes/actionTypes";
+import { addToCart, removeFromCart } from "../../Redux/actionCreators/blogsAction";
+import { ADD_TO_CART } from "../../Redux/actionTypes/actionTypes";
 // import { BiListPlus } from "react-icons/bi";
 
 const ProductCard = ({ product }) => {

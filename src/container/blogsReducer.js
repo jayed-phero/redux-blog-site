@@ -1,4 +1,4 @@
-import { ADD_BLOG, ADD_CONTENT, ADD_TO_CART, GET_BLOGS, GET_CONTENT, REMOVE_RFOM_CART } from "../actionTypes/actionTypes";
+import { ADD_BLOG, ADD_CONTENT, ADD_TO_CART, GET_BLOGS, GET_CONTENT, REMOVE_RFOM_CART } from "../Redux/actionTypes/actionTypes";
 
 const initialState = {
     text: "TEST",
