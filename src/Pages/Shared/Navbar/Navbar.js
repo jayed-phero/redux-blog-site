@@ -22,7 +22,7 @@ const Navbar = () => {
 
     return (
 
-        <div className='w-full pb-7 hidden md:block'>
+        <div className='w-full pb-7 hidden md:block '>
             <div className="navbar max-w-7xl mx-auto  bg-base-100">
                 <div className="navbar-start">
                     {/* <div className="dropdown">

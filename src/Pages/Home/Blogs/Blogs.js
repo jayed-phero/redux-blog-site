@@ -13,7 +13,7 @@ const Blogs = () => {
     const { blog, filter } = rootData;
     const { blogs } = blog
     const { filters } = filter
-    const {category} = filters
+    const {category, type} = filters
     useEffect(() => {
         dispatch(fetchBlogs())
     }, [])
@@ -22,12 +22,20 @@ const Blogs = () => {
 
     const categories = [
         {
+            name: "Kalima",
+            category: "kalima"
+        },
+        {
             name: "Solat",
             category: "solat"
         },
         {
             name: "Romadan",
             category: "romadan"
+        },
+        {
+            name: "Hazz",
+            category: "hazz"
         },
         {
             name: "Zakat",
@@ -55,7 +63,12 @@ const Blogs = () => {
             }
             return blog
         })
-        // .filter(blog => blog.type === )
+        .filter(blog => {
+            if(type.length){
+                return type.includes(blog.type)
+            }
+            return blog
+        } )
         .map((blog, i) => <BlogRow  key={i} blog={blog} />
         )
     }
@@ -89,12 +102,12 @@ const Blogs = () => {
                             </div>
                             <div className='px-5 py-9 border mt-9 '>
                                 <h3 className='text-xl font-semibold text-gray-700 pb-7 text-center uppercase'>Categorries</h3>
-                                <div className='flex flex-col '>
+                                <div className='grid grid-cols-2 gap-2'>
                                     {
                                         categories.map((data, i) =>
                                             <Link
                                                 key={i}
-                                                className={`text-md border-b border-gray-300 py-3 transition duration-200 hover:text-blue-500  ${filters.category.includes(data.category) ? activeClass : null}`}
+                                                className={`text-md border-2 px-3 py-1-5 rounded-2xl border-gray-300 py-3 transition duration-200 hover:text-blue-500 text-center  ${filters.category.includes(data.category) ? activeClass : null}`}
                                                 onClick={() => dispatch(toggleCategory(data.category))}
                                             >{data.name}</Link>
                                         )
@@ -103,15 +116,19 @@ const Blogs = () => {
                             </div>
                             <div className='border bg-blue-100 mt-9 px-5 py-7'>
                                 <h3 className='text-xl font-semibold text-gray-700 pb-7 text-center uppercase'>Content Type</h3>
-                                <div className='flex items-center gap-5'>
+                                <div className='flex items-center justify-center gap-3 md:gap-5'>
                                     <Link
-                                        className={` border-2 rounded px-5 py-2 text-gray-600 border-blue-500 ${filters.type.includes("importance") ? typeActiveClass : null}`}
+                                        className={` border-2 rounded px-2 py-1 md:px-5 md:py-2 text-xs md:text-sm text-gray-600 border-blue-500 ${filters.type.includes("importance") ? typeActiveClass : null}`}
                                         onClick={() => dispatch(toggleType("importance"))}
                                     >Importance</Link>
                                     <Link
-                                        className={` border-2 rounded px-5 py-2 text-gray-600 border-blue-500 ${filters.type.includes("masyala") ? typeActiveClass : null}`}
+                                        className={` border-2 rounded px-2 py-1 md:px-5 md:py-2 text-xs md:text-sm text-gray-600 border-blue-500 ${filters.type.includes("masyala") ? typeActiveClass : null}`}
                                         onClick={() => dispatch(toggleType("masyala"))}
                                     >Masyala</Link>
+                                    <Link
+                                        className={` border-2 rounded px-2 py-1 md:px-5 md:py-2 text-xs md:text-sm text-gray-600 border-blue-500 ${filters.type.includes("islamic") ? typeActiveClass : null}`}
+                                        onClick={() => dispatch(toggleType("islamic"))}
+                                    >Islamic</Link>
                                 </div>
                             </div>
                         </div>

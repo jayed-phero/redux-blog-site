@@ -6,11 +6,11 @@ import { addToHistory } from '../../../Redux/actionCreators/blogsAction';
 const BlogRow = ({ blog }) => {
     const dispatch = useDispatch()
     return (
-        <Link onClick={() => dispatch(addToHistory(blog))} to={`/details/${blog?._id}`}>  <div>
-            <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80" src={blog.image} alt="" />
+        <Link className='z-10' onClick={() => dispatch(addToHistory(blog))} to={`/details/${blog?._id}`}>  <div>
+            <img class="object-cover object-center w-full h-64 rounded-lg lg:h-80 z-10" src={blog.image} alt="" />
 
             <div class="mt-8">
-                <span class="text-blue-500 uppercase">category</span>
+                <span class="text-blue-500 uppercase">{blog.category}</span>
 
                 <h1 class="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
                     {blog.title.slice(0, 35)}
