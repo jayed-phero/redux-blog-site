@@ -8,3 +8,9 @@ export const DELETE_CONTENT = "DELETE_CONTENT"
 
 export const ADDTOHISTORY = "ADDTOHISTORY"
 export const REMOVEFROMHISTORY = "REMOVEFROMHISTORY"
+
+// filters 
+
+export const TOGGEL_CATEGORY = "TOGGEL_CATEGORY"
+export const TOGGEL_TYPE = "TOGGEL_TYPE"
+

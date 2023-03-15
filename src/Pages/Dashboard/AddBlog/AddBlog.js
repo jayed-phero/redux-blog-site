@@ -53,7 +53,7 @@ const AddBlog = () => {
     };
     return (
         <div className='px-5 py-9'>
-            <section class="p-6 max-w-5xl mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+            <section class="p-6 max-w-5xl mx-auto bg-white rounded-md shadow-xl border-2 dark:bg-gray-800">
                 <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Share your concept for people</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)}>

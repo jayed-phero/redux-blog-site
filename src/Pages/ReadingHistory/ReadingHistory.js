@@ -21,9 +21,8 @@ const ReadingHistory = () => {
                     {
                         history.length ?
                             history.map((history) =>
-                                <div 
-                                onClick={() => dispatch(removeFromHistory(history))}
-                                class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 mx-auto">
+                                <div
+                                    class="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 mx-auto">
                                     <div class="w-2 bg-gray-800 dark:bg-gray-900"></div>
 
                                     <div class="flex items-center px-2 py-3">
@@ -50,21 +49,6 @@ const ReadingHistory = () => {
                     }
                 </div>
             </div>
-            {/* <section class="bg-white dark:bg-gray-900">
-                <div class="container px-6 py-12 mx-auto">
-                    <div class="lg:flex lg:items-center lg:-mx-6">
-                        <div class="lg:w-1/2 lg:mx-6">
-                            <h1 class="text-2xl font-semibold text-gray-800 capitalize dark:text-white lg:text-3xl">
-                                Contact us for <br /> more info
-                            </h1>
-                        </div>
-
-                        <div class="mt-8 lg:w-1/2 lg:mx-6">
-
-                        </div>
-                    </div>
-                </div>
-            </section> */}
         </div>
     );
 };
