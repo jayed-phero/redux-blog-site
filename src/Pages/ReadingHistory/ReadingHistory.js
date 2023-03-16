@@ -2,8 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeFromHistory } from '../../Redux/actionCreators/blogsAction';
-import ProductCard from '../../container/Product/ProductCard';
-
 const ReadingHistory = () => {
     const history = useSelector((state) => state.blog.history)
     console.log(history)

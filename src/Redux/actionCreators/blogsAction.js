@@ -1,18 +1,6 @@
-const { ADD_TO_CART, REMOVE_RFOM_CART, GET_BLOGS, ADD_BLOG, GET_CONTENT, ADD_CONTENT, DELETE_CONTENT, ADDTOHISTORY, REMOVEFROMHISTORY } = require("../actionTypes/actionTypes")
+const { GET_CONTENT, ADD_CONTENT, DELETE_CONTENT, ADDTOHISTORY, REMOVEFROMHISTORY } = require("../actionTypes/actionTypes")
 
-export const addToCart = (data) => {
-    return {
-        type: ADD_TO_CART,
-        payload: data
-    }
-}
 
-export const removeFromCart = (data) => {
-    return {
-        type: REMOVE_RFOM_CART,
-        payload: data
-    }
-}
 
 export const getContent = (data) => {
     return {
